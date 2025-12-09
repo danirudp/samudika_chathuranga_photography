@@ -1,11 +1,11 @@
 'use client';
 
 import {
-  motion,
-  useMotionValue,
-  useScroll,
-  useSpring,
-  useTransform,
+motion,
+useMotionValue,
+useScroll,
+useSpring,
+useTransform,
 } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
@@ -13,10 +13,10 @@ import { useRef, type MouseEvent } from 'react'; // Added MouseEvent type
 
 // --- DYNAMIC IMPORTS ---
 const HorizontalScroll = dynamic(
-  () => import('@/components/horizontal-scroll'),
-  {
-    loading: () => <div className="h-screen bg-[#0f0f11]" />,
-  }
+() => import('@/components/horizontal-scroll'),
+{
+loading: () => <div className="h-screen bg-[#0f0f11]" />,
+}
 );
 const Philosophy = dynamic(() => import('@/components/philosophy'));
 const LoveStories = dynamic(() => import('@/components/love-stories'));
@@ -24,60 +24,61 @@ const LoveStories = dynamic(() => import('@/components/love-stories'));
 const Footer = dynamic(() => import('@/components/footer'));
 
 export default function Home() {
-  // TYPE SAFETY: Explicitly define the HTML Element type for refs.
-  // This ensures 'containerRef.current' knows it is a DIV, providing correct autocomplete.
-  const containerRef = useRef<HTMLDivElement>(null);
-  const heroRef = useRef<HTMLElement>(null);
+// TYPE SAFETY: Explicitly define the HTML Element type for refs.
+// This ensures 'containerRef.current' knows it is a DIV, providing correct autocomplete.
+const containerRef = useRef<HTMLDivElement>(null);
+const heroRef = useRef<HTMLElement>(null);
 
-  // Mouse Parallax State
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+// Mouse Parallax State
+const mouseX = useMotionValue(0);
+const mouseY = useMotionValue(0);
 
-  // Smooth Scroll Physics
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end start'],
-  });
+// Smooth Scroll Physics
+const { scrollYProgress } = useScroll({
+target: containerRef,
+offset: ['start start', 'end start'],
+});
 
-  // 1. THE FLYING ZOOM EFFECT
-  const scaleImg = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
-  const yImg = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
+// 1. THE FLYING ZOOM EFFECT
+const scaleImg = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
+const yImg = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
 
-  // The Text moves APART
-  const yTextTop = useTransform(scrollYProgress, [0, 1], ['0%', '-50%']);
-  const yTextBottom = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+// The Text moves APART
+const yTextTop = useTransform(scrollYProgress, [0, 1], ['0%', '-50%']);
+const yTextBottom = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
 
-  // Opacity fade out for "Flying through" feel
-  const opacityHero = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+// Opacity fade out for "Flying through" feel
+const opacityHero = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  // TYPE SAFETY: Strictly typed event handler
-  const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
-    const { clientX, clientY, currentTarget } = e;
-    const { width, height } = currentTarget.getBoundingClientRect();
-    const xPct = clientX / width - 0.5;
-    const yPct = clientY / height - 0.5;
-    mouseX.set(xPct);
-    mouseY.set(yPct);
-  };
+// TYPE SAFETY: Strictly typed event handler
+const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
+const { clientX, clientY, currentTarget } = e;
+const { width, height } = currentTarget.getBoundingClientRect();
+const xPct = clientX / width - 0.5;
+const yPct = clientY / height - 0.5;
+mouseX.set(xPct);
+mouseY.set(yPct);
+};
 
-  // Smooth springs for mouse movement
-  const xSpring = useSpring(mouseX, { stiffness: 300, damping: 30 });
-  const ySpring = useSpring(mouseY, { stiffness: 300, damping: 30 });
+// Smooth springs for mouse movement
+const xSpring = useSpring(mouseX, { stiffness: 300, damping: 30 });
+const ySpring = useSpring(mouseY, { stiffness: 300, damping: 30 });
 
-  // Text moves opposite to mouse (Depth)
-  const textX = useTransform(xSpring, [-0.5, 0.5], ['20px', '-20px']);
-  const textY = useTransform(ySpring, [-0.5, 0.5], ['20px', '-20px']);
+// Text moves opposite to mouse (Depth)
+const textX = useTransform(xSpring, [-0.5, 0.5], ['20px', '-20px']);
+const textY = useTransform(ySpring, [-0.5, 0.5], ['20px', '-20px']);
 
-  return (
-    <main className="relative w-full bg-[#0f0f11]">
-      {/* 1. CINEMATIC HERO SECTION */}
-      <section
+return (
+
+<main className="relative w-full bg-[#0f0f11]">
+{/_ 1. CINEMATIC HERO SECTION _/}
+<section
         ref={heroRef}
         onMouseMove={handleMouseMove}
         className="relative h-screen w-full overflow-hidden flex flex-col justify-between py-12 md:py-24"
       >
-        {/* BACKGROUND GRAIN */}
-        <div className="absolute inset-0 z-[1] opacity-[0.07] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+{/_ BACKGROUND GRAIN _/}
+<div className="absolute inset-0 z-[1] opacity-[0.07] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
 
         {/* HERO IMAGE */}
         <motion.div
@@ -170,5 +171,6 @@ export default function Home() {
         </div>
       </div>
     </main>
-  );
+
+);
 }
