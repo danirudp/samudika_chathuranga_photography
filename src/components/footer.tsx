@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useLenis } from 'lenis/react';
-import { ArrowUpRight, Camera } from 'lucide-react';
+import { ArrowRight, Camera } from 'lucide-react';
 import Link from 'next/link';
 import { useRef } from 'react';
 
@@ -18,6 +18,7 @@ interface ExternalLinkProps {
 }
 
 // --- CONSTANTS ---
+// Senior Polish: Extract static data to keep the render function clean.
 const SOCIAL_LINKS = [
   { text: 'Instagram', href: '#' },
   { text: 'Twitter', href: '#' },
@@ -36,7 +37,6 @@ export default function Footer() {
   const containerRef = useRef<HTMLElement>(null);
   const lenis = useLenis();
 
-  // Scroll Physics
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end end'],
@@ -48,8 +48,7 @@ export default function Footer() {
     mass: 0.5,
   });
 
-  // Parallax Content
-  const yContent = useTransform(smoothY, [0, 1], [-100, 0]);
+  const yContent = useTransform(smoothY, [0, 1], [-50, 0]);
 
   const handleScroll = (target: string) => {
     if (lenis) {
@@ -64,46 +63,29 @@ export default function Footer() {
   return (
     <footer
       ref={containerRef}
-      className="relative w-full bg-[#0f0f11] pt-32 pb-12 px-6 md:px-12 lg:px-24 overflow-hidden border-t border-white/5"
+      className="relative w-full bg-[#0f0f11] pt-20 md:pt-32 pb-8 px-4 md:px-12 lg:px-24 overflow-hidden border-t border-white/5"
     >
       {/* Background Grain */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] will-change-transform"></div>
 
-      {/* 1. INFINITE MARQUEE (Visual Divider) */}
-      <div className="absolute top-10 left-0 w-full overflow-hidden opacity-20 pointer-events-none select-none">
-        <motion.div
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 20, ease: 'linear', repeat: Infinity }}
-          className="flex whitespace-nowrap gap-10"
-        >
-          {[...Array(4)].map((_, i) => (
-            <span
-              key={i}
-              className="text-[10vw] font-serif leading-none stroke-text tracking-tighter"
-            >
-              SAMUDIKA CHATHURANGA
-            </span>
-          ))}
-        </motion.div>
-      </div>
-
       <motion.div
         style={{ y: yContent }}
-        className="relative z-10 flex flex-col h-full justify-between will-change-transform pt-24"
+        className="relative z-10 flex flex-col h-full justify-between will-change-transform"
       >
-        {/* 2. THE BIG HEADER (CTA) */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-16 mb-32 border-b border-white/10 pb-20">
-          <div className="max-w-4xl relative">
+        {/* 1. THE BIG HEADER (CTA) */}
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-12 mb-20 md:mb-32 border-b border-white/10 pb-16 md:pb-24 text-center md:text-left">
+          <div className="max-w-4xl relative flex flex-col items-center md:items-start">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-4 mb-8"
+              className="flex items-center gap-4 mb-6"
             >
-              <div className="h-[1px] w-12 bg-white/30"></div>
-              <span className="font-sans text-xs uppercase tracking-[0.4em] text-white/50">
+              <div className="hidden md:block h-[1px] w-12 bg-white/30"></div>
+              <span className="font-sans text-xs md:text-sm uppercase tracking-[0.3em] text-white/50">
                 The Next Chapter
               </span>
+              <div className="md:hidden h-[1px] w-12 bg-white/30"></div>
             </motion.div>
 
             <motion.h2
@@ -111,12 +93,10 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-serif text-6xl md:text-8xl lg:text-9xl text-white leading-[0.85] tracking-tight mix-blend-overlay"
+              className="font-serif text-5xl md:text-7xl lg:text-9xl text-white leading-[0.9] tracking-tight"
             >
-              Ready to tell <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/50 to-white/90 animate-shimmer bg-[length:200%_auto] italic">
-                your story?
-              </span>
+              Ready to tell <br className="hidden md:block" />
+              <span className="text-white/40 italic">your story?</span>
             </motion.h2>
           </div>
 
@@ -125,50 +105,43 @@ export default function Footer() {
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="md:mb-4 self-end md:self-auto"
+            className="md:mb-4"
           >
-            <Link
-              href="/contact"
-              className="group relative flex h-20 w-20 md:h-30 md:w-30 items-center justify-center rounded-full bg-white transition-all duration-500 hover:scale-110 focus-ring"
-              aria-label="Start your project"
-            >
-              <span className="relative z-10 font-sans text-xs font-bold uppercase tracking-widest text-black group-hover:hidden">
+            <Link href="/contact" className="group block relative">
+              <div className="relative h-18 w-18 md:h-28 md:w-28 rounded-full border border-white/20 flex items-center justify-center overflow-hidden bg-white/5 backdrop-blur-sm transition-transform duration-500 group-hover:scale-105 group-hover:border-white/40">
+                <div className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0"></div>
+                <ArrowRight className="relative z-10 w-8 h-8 md:w-10 md:h-10 text-white transition-colors duration-500 group-hover:text-black -rotate-45 group-hover:rotate-0" />
+              </div>
+              <span className="absolute left-1/2 -translate-x-1/2 -bottom-8 whitespace-nowrap font-sans text-[10px] uppercase tracking-widest text-white/30 group-hover:text-white transition-colors">
                 Let's Talk
               </span>
-              <ArrowUpRight className="hidden h-12 w-12 text-black transition-transform duration-500 group-hover:block group-hover:-rotate-45 group-hover:scale-125" />
             </Link>
           </motion.div>
         </div>
 
-        {/* 3. THE ARCHITECTURAL GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 mb-24">
+        {/* 2. THE BALANCED DATA GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8">
           {/* A. Brand (Span 4) */}
-          <div className="md:col-span-4 flex flex-col gap-8">
-            <Link
-              href="/"
-              className="flex items-center gap-3 focus-ring rounded-lg w-fit"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black">
-                <Camera size={20} />
+          <div className="md:col-span-4 flex flex-col gap-6 items-center text-center md:items-start md:text-left">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black">
+                <Camera size={18} />
               </div>
-              <span className="font-serif text-3xl text-white">
-                Samudika Chathuranga Photography
+              <span className="font-serif text-2xl text-white">
+                Reliving Moments
               </span>
-            </Link>
-            <p className="font-sans text-white/40 text-sm leading-relaxed max-w-sm">
+            </div>
+            <p className="font-sans text-white/40 text-sm leading-relaxed max-w-xs">
               Capturing the unscripted, raw, and timeless moments of your life.
-              Based in Sri Lanka, Available Islandwide.
+              Based in Sri Lanka, Available Islanddwide.
             </p>
           </div>
 
           {/* B. Navigation & Socials Group (Span 4) */}
           <div className="md:col-span-4 w-full">
-            <div className="grid grid-cols-2 gap-12 border-l border-white/5 pl-8 md:pl-12">
+            <div className="grid grid-cols-2 gap-4 md:gap-12 w-full max-w-md mx-auto md:mx-0 border-t border-b border-white/5 py-8 md:py-0 md:border-none">
               {/* Explore Column */}
-              <nav
-                className="flex flex-col gap-6"
-                aria-label="Footer Navigation"
-              >
+              <div className="flex flex-col gap-6 pl-4 md:pl-12 border-r border-white/5 md:border-r-0 md:border-l">
                 <span className="font-sans text-xs uppercase tracking-[0.2em] text-white/30">
                   Explore
                 </span>
@@ -181,10 +154,10 @@ export default function Footer() {
                     />
                   ))}
                 </div>
-              </nav>
+              </div>
 
               {/* Socials Column */}
-              <nav className="flex flex-col gap-6" aria-label="Social Media">
+              <div className="flex flex-col gap-6 pl-8 md:pl-12 border-l border-white/5 md:border-none">
                 <span className="font-sans text-xs uppercase tracking-[0.2em] text-white/30">
                   Socials
                 </span>
@@ -197,24 +170,24 @@ export default function Footer() {
                     />
                   ))}
                 </div>
-              </nav>
+              </div>
             </div>
           </div>
 
           {/* C. Contact (Span 4) */}
-          <div className="md:col-span-4 flex flex-col gap-8 md:items-end md:text-right border-t md:border-t-0 md:border-l border-white/5 pt-12 md:pt-0 md:pl-12">
+          <div className="md:col-span-4 flex flex-col gap-8 items-center text-center md:items-end md:text-right">
             <div>
               <span className="font-sans text-xs uppercase tracking-[0.2em] text-white/30 mb-4 block">
                 Inquiries
               </span>
               <a
                 href="mailto:djsamudika@gmail.com"
-                className="font-serif text-2xl md:text-4xl text-white hover:text-white/60 transition-colors block focus-ring rounded-lg"
+                className="font-serif text-3xl md:text-4xl text-white hover:text-white/70 transition-colors block"
               >
                 djsamudika@gmail.com
               </a>
             </div>
-            <address className="not-italic">
+            <div>
               <span className="font-sans text-xs uppercase tracking-[0.2em] text-white/30 mb-4 block">
                 Studio
               </span>
@@ -225,26 +198,20 @@ export default function Footer() {
                 <br />
                 Sri Lanka
               </p>
-            </address>
+            </div>
           </div>
         </div>
 
-        {/* 4. BOTTOM COPYRIGHT */}
-        <div className="border-t border-white/5 pt-8 flex flex-col-reverse md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-white/20 font-sans">
-          <span>© 2025 Samudika Chathuranga Photography</span>
+        {/* 3. BOTTOM COPYRIGHT */}
+        <div className="mt-24 pt-8 border-t border-white/5 flex flex-col-reverse md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-white/20 font-sans">
+          <span>© 2024 Reliving Moments</span>
           <div className="flex gap-8">
-            <Link
-              href="/privacy"
-              className="cursor-pointer hover:text-white transition-colors focus-ring rounded-sm"
-            >
+            <span className="cursor-pointer hover:text-white transition-colors">
               Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="cursor-pointer hover:text-white transition-colors focus-ring rounded-sm"
-            >
+            </span>
+            <span className="cursor-pointer hover:text-white transition-colors">
               Terms & Conditions
-            </Link>
+            </span>
           </div>
         </div>
       </motion.div>
@@ -258,9 +225,9 @@ function FooterLink({ label, onClick }: FooterLinkProps) {
   return (
     <button
       onClick={onClick}
-      className="focus-ring group flex items-center gap-2 w-fit text-left rounded-sm"
+      className="group flex items-center gap-2 w-fit text-left"
     >
-      <span className="h-[1px] w-0 bg-white transition-all duration-300 group-hover:w-4"></span>
+      <span className="hidden md:block h-[1px] w-0 bg-white transition-all duration-300 group-hover:w-4"></span>
       <span className="font-sans text-sm text-white/60 group-hover:text-white transition-colors">
         {label}
       </span>
@@ -270,13 +237,8 @@ function FooterLink({ label, onClick }: FooterLinkProps) {
 
 function ExternalLink({ href, text }: ExternalLinkProps) {
   return (
-    <Link
-      href={href}
-      className="focus-ring group flex items-center gap-2 w-fit rounded-sm"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span className="h-[1px] w-0 bg-white transition-all duration-300 group-hover:w-4"></span>
+    <Link href={href} className="group flex items-center gap-2 w-fit">
+      <span className="hidden md:block h-[1px] w-0 bg-white transition-all duration-300 group-hover:w-4"></span>
       <span className="font-sans text-sm text-white/60 group-hover:text-white transition-colors">
         {text}
       </span>
