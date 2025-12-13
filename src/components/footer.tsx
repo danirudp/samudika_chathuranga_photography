@@ -18,19 +18,18 @@ interface ExternalLinkProps {
 }
 
 // --- CONSTANTS ---
-// Senior Polish: Extract static data to keep the render function clean.
 const SOCIAL_LINKS = [
+  { text: 'Facebook', href: '#' },
   { text: 'Instagram', href: '#' },
-  { text: 'Twitter', href: '#' },
   { text: 'LinkedIn', href: '#' },
-  { text: 'Pinterest', href: '#' },
+  { text: 'WhatsApp', href: '#' },
 ];
 
 const EXPLORE_LINKS = [
   { label: 'Home', target: 'top' },
   { label: 'Portfolio', target: '#portfolio' },
-  { label: 'Stories', target: '#stories' },
   { label: 'About', target: '#about' },
+  { label: 'Stories', target: '#stories' },
 ];
 
 export default function Footer() {
@@ -113,7 +112,7 @@ export default function Footer() {
                 <ArrowRight className="relative z-10 w-8 h-8 md:w-10 md:h-10 text-white transition-colors duration-500 group-hover:text-black -rotate-45 group-hover:rotate-0" />
               </div>
               <span className="absolute left-1/2 -translate-x-1/2 -bottom-8 whitespace-nowrap font-sans text-[10px] uppercase tracking-widest text-white/30 group-hover:text-white transition-colors">
-                Let's Talk
+                Book Now
               </span>
             </Link>
           </motion.div>
@@ -127,13 +126,13 @@ export default function Footer() {
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black">
                 <Camera size={18} />
               </div>
-              <span className="font-serif text-2xl text-white">
-                Reliving Moments
+              <span className="font-serif italic text-2xl text-white">
+                Samudika Chathuranga Photography
               </span>
             </div>
             <p className="font-sans text-white/40 text-sm leading-relaxed max-w-xs">
               Capturing the unscripted, raw, and timeless moments of your life.
-              Based in Sri Lanka, Available Islanddwide.
+              Based in Sri Lanka, Available Islandwide.
             </p>
           </div>
 
@@ -181,10 +180,16 @@ export default function Footer() {
                 Inquiries
               </span>
               <a
-                href="mailto:djsamudika@gmail.com"
-                className="font-serif text-3xl md:text-4xl text-white hover:text-white/70 transition-colors block"
+                href="mailto:samudikadj@gmail.com"
+                className="font-serif text-2xl md:text-1xl text-white hover:text-white/70 transition-colors block"
               >
-                djsamudika@gmail.com
+                samudikadj@gmail.com
+              </a>
+              <a
+                href="tel:+94703258550"
+                className="font-serif text-2xl md:text-1xl text-white hover:text-white/70 transition-colors block"
+              >
+                070 325 8550
               </a>
             </div>
             <div>
@@ -204,7 +209,7 @@ export default function Footer() {
 
         {/* 3. BOTTOM COPYRIGHT */}
         <div className="mt-24 pt-8 border-t border-white/5 flex flex-col-reverse md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-white/20 font-sans">
-          <span>© 2024 Reliving Moments</span>
+          <span>©2025 Samudika Chathuranga Photography</span>
           <div className="flex gap-8">
             <span className="cursor-pointer hover:text-white transition-colors">
               Privacy Policy

@@ -104,11 +104,9 @@ export default function Home() {
           className="relative z-10 w-full px-4 md:px-12 mix-blend-overlay"
         >
           <div className="flex justify-between items-start border-t border-white/20 pt-4">
-            <span className="font-sans text-xs uppercase tracking-[0.4em] text-white/70">
-              Est. 2018
-            </span>
+            <span className="font-sans text-xs uppercase tracking-[0.4em] text-white/70"></span>
             <span className="font-sans text-xs uppercase tracking-[0.4em] text-white/70 text-right hidden md:block">
-              Ratnapura, LK
+              Est. 2018 | Ratnapura, LK
             </span>
           </div>
 
@@ -139,10 +137,6 @@ export default function Home() {
           </h1>
 
           <div className="flex justify-center md:justify-between items-end border-b border-white/20 pb-4">
-            <div className="hidden md:flex gap-8">
-              <span className="font-sans text-xs text-white/50">IG</span>
-              <span className="font-sans text-xs text-white/50">FB</span>
-            </div>
             {/* Scroll Indicator */}
             <div className="flex flex-col items-center animate-bounce-slow">
               <div className="w-[1px] h-12 bg-gradient-to-b from-transparent to-white/50"></div>
