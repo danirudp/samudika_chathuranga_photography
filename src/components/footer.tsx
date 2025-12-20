@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useLenis } from 'lenis/react';
-import { ArrowRight, Camera } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useRef } from 'react';
 
@@ -19,10 +19,16 @@ interface ExternalLinkProps {
 
 // --- CONSTANTS ---
 const SOCIAL_LINKS = [
-  { text: 'Facebook', href: '#' },
+  {
+    text: 'Facebook',
+    href: 'https://www.facebook.com/samudikaC?mibextid=wwXIfr&mibextid=wwXIfr',
+  },
   { text: 'Instagram', href: '#' },
-  { text: 'LinkedIn', href: '#' },
-  { text: 'WhatsApp', href: '#' },
+  {
+    text: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/samudika-premathilake-b28452330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+  },
+  { text: 'WhatsApp', href: 'wa.me/94703258550' },
 ];
 
 const EXPLORE_LINKS = [
@@ -106,7 +112,7 @@ export default function Footer() {
             transition={{ delay: 0.2 }}
             className="md:mb-4"
           >
-            <Link href="/contact" className="group block relative">
+            <Link href="wa.me/94703258550" className="group block relative">
               <div className="relative h-18 w-18 md:h-28 md:w-28 rounded-full border border-white/20 flex items-center justify-center overflow-hidden bg-white/5 backdrop-blur-sm transition-transform duration-500 group-hover:scale-105 group-hover:border-white/40">
                 <div className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0"></div>
                 <ArrowRight className="relative z-10 w-8 h-8 md:w-10 md:h-10 text-white transition-colors duration-500 group-hover:text-black -rotate-45 group-hover:rotate-0" />
@@ -123,10 +129,7 @@ export default function Footer() {
           {/* A. Brand (Span 4) */}
           <div className="md:col-span-4 flex flex-col gap-6 items-center text-center md:items-start md:text-left">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black">
-                <Camera size={18} />
-              </div>
-              <span className="font-serif italic text-2xl text-white">
+              <span className="font-sans text-2xl text-white">
                 Samudika Chathuranga Photography
               </span>
             </div>
@@ -181,13 +184,14 @@ export default function Footer() {
               </span>
               <a
                 href="mailto:samudikadj@gmail.com"
-                className="font-serif text-2xl md:text-1xl text-white hover:text-white/70 transition-colors block"
+                className="font-sans text-sm text-white/60 leading-relaxed"
               >
                 samudikadj@gmail.com
               </a>
+              <br />
               <a
                 href="tel:+94703258550"
-                className="font-serif text-2xl md:text-1xl text-white hover:text-white/70 transition-colors block"
+                className="font-sans text-sm text-white/60 leading-relaxed"
               >
                 070 325 8550
               </a>

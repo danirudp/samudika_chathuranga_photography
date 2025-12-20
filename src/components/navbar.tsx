@@ -149,7 +149,7 @@ function MobileMenu({
           <button
             key={link.name}
             onClick={() => onNavigate(link.target)}
-            className="text-3xl font-serif text-white hover:text-orange-200 transition-colors"
+            className="text-3xl font-sans text-white hover:text-orange-200 transition-colors"
           >
             {link.name}
           </button>

@@ -6,47 +6,52 @@ export interface Story {
   image: string;
   align: 'left' | 'right';
   category: 'Wedding' | 'Elopement' | 'Engagement';
+  description: string;
 }
 
 export const ALL_STORIES: Story[] = [
   {
     id: 1,
-    names: 'Elena & Mateo',
-    location: 'Lake Como, Italy',
-    year: '2024',
+    names: 'KAVINDU & ANUTHTHARA',
+    location: ' Arcade Independence, Colombo',
+    year: '2025',
     category: 'Wedding',
-    image:
-      'https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=2070&auto=format&fit=crop',
+    image: '/portfolio/2.webp',
+    description:
+      'An intimate celebration captured on 35mm film and digital, preserving the quiet emotions that unfold naturally. This collection lingers on subtle glances, gentle gestures, and unspoken connections, revealing the beauty that lives between moments. Each frame is composed with patience, allowing authenticity to lead the story.',
     align: 'left',
   },
   {
     id: 2,
-    names: 'Sarah & David',
-    location: 'New York City',
-    year: '2024',
-    category: 'Elopement',
-    image:
-      'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop',
+    names: 'SHANI & MANULA',
+    location: 'Pelmadulle, Sri Lanka',
+    year: '2025',
+    category: 'Engagement',
+    image: '/portfolio/22.webp',
+    description:
+      'Captured film and digital formats, this album explores the spaces between movement and stillness. It is a visual narrative shaped by light, texture, and silence, where emotions surface without direction. The photographs embrace imperfection, allowing moments to exist exactly as they were.',
     align: 'right',
   },
   {
     id: 3,
-    names: 'Aria & Liam',
-    location: 'Kyoto, Japan',
-    year: '2023',
+    names: 'RANINDU & HESHANI',
+    location: 'ITC Ratnadipa, Colombo',
+    year: '2024',
     category: 'Wedding',
-    image:
-      'https://images.unsplash.com/photo-1621621667797-e06afc217fb0?q=80&w=2070&auto=format&fit=crop',
+    image: '/portfolio/14.webp',
+    description:
+      'This series documents an intimate celebration through a cinematic blend of film and digital photography. Rather than focusing on posed scenes, it follows the rhythm of the day as it unfolds—fleeting expressions, tender pauses, and honest interactions. The result is a story that feels lived, not staged.',
     align: 'left',
   },
   {
     id: 4,
-    names: 'Noah & Emma',
-    location: 'Paris, France',
-    year: '2023',
-    category: 'Engagement',
-    image:
-      'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop',
+    names: 'TADANO & RASANJALI',
+    location: 'Ratnapura, Sri Lanka',
+    year: '2025',
+    category: 'Wedding',
+    image: '/portfolio/3.webp',
+    description:
+      'Photographed using 85mm film alongside digital, this album is rooted in stillness and sincerity. It captures the understated beauty of human connection, where emotion emerges softly and naturally. The imagery reflects a calm, deliberate approach, honoring the moments that often go unnoticed.',
     align: 'right',
   },
 ];

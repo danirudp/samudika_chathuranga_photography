@@ -86,10 +86,19 @@ export default function Home() {
         >
           <div className="relative w-full h-full">
             <Image
-              src="https://images.unsplash.com/photo-1621621667797-e06afc217fb0?q=80&w=2070&auto=format&fit=crop"
+              src="/portfolio/10.webp"
               alt="Cinematic Wedding"
               fill
-              className="object-cover opacity-60"
+              className="object-cover opacity-60 hidden md:block"
+              priority
+              sizes="100vw"
+            />
+
+            <Image
+              src="/portfolio/23.webp"
+              alt="Cinematic Wedding"
+              fill
+              className="object-cover opacity-60 block md:hidden"
               priority
               sizes="100vw"
             />
@@ -110,7 +119,7 @@ export default function Home() {
             </span>
           </div>
 
-          <h1 className="font-serif text-[13vw] leading-[0.8] text-white tracking-tighter mt-4 text-center md:text-left">
+          <h1 className="font-serif text-[13vw] leading-[0.8] text-white tracking-tighter mt-4 text-center md:text-center">
             SAMUDIKA
           </h1>
         </motion.div>
@@ -132,7 +141,7 @@ export default function Home() {
           style={{ y: yTextBottom, x: textX, opacity: opacityHero }}
           className="relative z-10 w-full px-4 md:px-12 mix-blend-overlay"
         >
-          <h1 className="font-serif text-[13vw] leading-[0.8] text-white tracking-tighter mb-4 text-center md:text-right">
+          <h1 className="font-serif text-[13vw] leading-[0.8] text-white tracking-tighter mb-4 text-center md:text-center">
             CHATHURANGA
           </h1>
 
