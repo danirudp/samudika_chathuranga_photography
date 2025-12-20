@@ -5,8 +5,7 @@ import Image from 'next/image';
 import { useRef } from 'react';
 
 // --- CONSTANTS & CONFIG ---
-const PHOTOGRAPHER_IMAGE =
-  'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop';
+const PHOTOGRAPHER_IMAGE = '/portfolio/16.webp';
 
 // "Luxury" Easing Curve (Bezier)
 const EASE_LUXURY = [0.33, 1, 0.68, 1];
@@ -98,13 +97,13 @@ export default function Philosophy() {
 
         {/* Headline */}
         <h3 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[0.95] text-white mb-10 mix-blend-difference">
-          <span className="block">We do not just</span>
-          <span className="block italic text-white/50 pl-12">take photos.</span>
-          <span className="block">We capture the</span>
+          <span className="block">Let memories </span>
+          <span className="block italic text-white/50 pl-12">be framed</span>
+          <span className="block">in time,</span>
           <span className="block italic text-white/50 pl-8">
-            silence between
+            just smiles are
           </span>
-          <span className="block">the heartbeats.</span>
+          <span className="block">frozen in light.</span>
         </h3>
 
         {/* Body Text */}
@@ -137,9 +136,7 @@ export default function Philosophy() {
           className="mt-12 pl-8 flex flex-col gap-2"
         >
           <div className="h-[1px] w-16 bg-white/20 mb-4"></div>
-          <p className="font-serif text-2xl text-white italic">
-            Samudika Chathuranga
-          </p>
+          <p className="font-sans text-2xl text-white">Samudika Chathuranga</p>
           <p className="font-sans text-[10px] uppercase tracking-widest text-white/30">
             Lead Photographer
           </p>

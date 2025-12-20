@@ -24,38 +24,38 @@ interface GalleryItem {
 const ITEMS: GalleryItem[] = [
   {
     id: 1,
-    url: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop',
+    url: '/portfolio/9.webp',
     title: 'The Vows',
-    desc: 'Lake Como',
-    year: '2024',
+    desc: 'Tewatte Church',
+    year: '2025',
   },
   {
     id: 2,
-    url: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop',
+    url: '/portfolio/11.webp',
     title: 'First Look',
-    desc: 'Tuscany',
+    desc: 'Colombo',
     year: '2024',
   },
   {
     id: 3,
-    url: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop',
+    url: '/portfolio/21.webp',
     title: 'Golden Hour',
-    desc: 'Kyoto',
-    year: '2023',
+    desc: 'Ratnapura',
+    year: '2025',
   },
   {
     id: 4,
-    url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2070&auto=format&fit=crop',
+    url: '/portfolio/5.webp',
     title: 'The Party',
-    desc: 'New York',
-    year: '2023',
+    desc: 'Ratnapura',
+    year: '2025',
   },
   {
     id: 5,
-    url: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop',
+    url: '/portfolio/20.webp',
     title: 'Details',
-    desc: 'Paris',
-    year: '2022',
+    desc: 'Colombo',
+    year: '2024',
   },
 ];
 
@@ -122,7 +122,7 @@ export default function HorizontalScroll() {
           {/* Introductory Card (Responsive Size) */}
           <div className="flex h-[50vh] w-[80vw] md:h-[60vh] md:w-[30vw] min-w-[300px] md:min-w-[350px] flex-col justify-center z-10 shrink-0 border-l border-white/10 pl-8 md:pl-12 backdrop-blur-sm">
             <h2 className="font-serif text-5xl md:text-8xl leading-[0.9] text-white mb-6 md:mb-8">
-              The <br /> <span className="text-white/40 italic">Gallery.</span>
+              The <br /> <span className="text-white/40 italic">Gallery</span>
             </h2>
             <p className="text-sm text-white/50 max-w-xs font-sans tracking-wide leading-relaxed">
               Drag the scrollbar. Feel the weight of the memories.

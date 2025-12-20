@@ -256,8 +256,7 @@ const StoryCard = memo(function StoryCard({
 
         {/* Description */}
         <p className="relative z-10 mt-6 md:mt-8 font-sans text-white/60 md:text-white/50 text-sm max-w-xs leading-relaxed">
-          An intimate celebration captured on 35mm film and digital, focusing on
-          the quiet moments in between.
+          {story.description}
         </p>
 
         {/* Decorative Line (Color Corrected: White) */}
