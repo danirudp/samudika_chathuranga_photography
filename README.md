@@ -1,6 +1,6 @@
 # Samudika Chathuranga Photography 📸
 
-![Next.js](https://img.shields.io/badge/Next.js-15-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38bdf8) ![Performance](https://img.shields.io/badge/Lighthouse-97%2F100-success)
+![Next.js](https://img.shields.io/badge/Next.js-16-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38bdf8) ![Performance](https://img.shields.io/badge/Lighthouse-97%2F100-success)
 
 A high-performance, cinematic photography portfolio built for **Samudika Chathuranga**. This project focuses on delivering a "Fine Art" aesthetic with silky smooth animations while maintaining **100% SEO** and **97+ Performance** scores on production.
 
