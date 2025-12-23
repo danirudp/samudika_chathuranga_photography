@@ -43,7 +43,7 @@ This project achieves **97-100/100** on Lighthouse by implementing advanced opti
 1.  **Clone the repository:**
 
     ```bash
-    git clone [https://github.com/yourusername/samudika-photography.git](https://github.com/yourusername/samudika-photography.git)
+    git clone https://github.com/danirudp/samudika_chathuranga_photography.git
     ```
 
 2.  **Install dependencies:**
