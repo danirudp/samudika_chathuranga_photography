@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 // --- CONSTANTS ---
 const PRELOADER_COLOR = '#141414';
 const ANIMATION_DURATION = 0.7;
-// Custom Bezier for that "Luxury" fluid feel
 const EASE_FLUID = [0.76, 0, 0.24, 1];
 
 // --- TYPES ---
@@ -117,7 +116,6 @@ export default function Preloader() {
 }
 
 // --- STATIC VARIANTS ---
-// Moved outside component to prevent re-creation on render
 
 const slideUpVariants: Variants = {
   initial: { top: 0 },

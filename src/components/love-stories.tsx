@@ -101,7 +101,7 @@ export default function LoveStories() {
   );
 }
 
-// --- SUB-COMPONENT: STORY CARD (COLOR CORRECTED) ---
+// --- SUB-COMPONENT: STORY CARD ---
 const StoryCard = memo(function StoryCard({
   story,
   index,
@@ -224,7 +224,7 @@ const StoryCard = memo(function StoryCard({
           isRight ? 'md:items-end md:text-right' : 'md:items-start md:text-left'
         } relative z-10`}
       >
-        {/* Ghost Year (Color Corrected: White/30) */}
+        {/* Ghost Year */}
         {/* Mobile Year */}
         <span className="md:hidden font-sans text-xs text-white/40 mb-2 uppercase tracking-widest pl-1">
           {story.year} — Highlight
@@ -243,7 +243,7 @@ const StoryCard = memo(function StoryCard({
           {story.names}
         </h3>
 
-        {/* Location Pill (Color Corrected: White Border) */}
+        {/* Location Pill*/}
         <div className="relative z-10 flex items-center gap-2 border border-white/20 rounded-full px-4 py-1.5 md:px-5 md:py-2 w-fit bg-[#0f0f11]/50 backdrop-blur-md md:group-hover:border-white/50 md:group-hover:text-white transition-colors">
           <MapPin
             size={14}

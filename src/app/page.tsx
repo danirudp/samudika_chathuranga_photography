@@ -9,7 +9,7 @@ import {
 } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { useRef, type MouseEvent } from 'react'; // Added MouseEvent type
+import { useRef, type MouseEvent } from 'react';
 
 // --- DYNAMIC IMPORTS ---
 const HorizontalScroll = dynamic(
@@ -20,12 +20,9 @@ const HorizontalScroll = dynamic(
 );
 const Philosophy = dynamic(() => import('@/components/philosophy'));
 const LoveStories = dynamic(() => import('@/components/love-stories'));
-// const Services = dynamic(() => import('@/components/services')); // Removed based on previous request
 const Footer = dynamic(() => import('@/components/footer'));
 
 export default function Home() {
-  // TYPE SAFETY: Explicitly define the HTML Element type for refs.
-  // This ensures 'containerRef.current' knows it is a DIV, providing correct autocomplete.
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -85,22 +82,26 @@ export default function Home() {
           className="absolute inset-0 z-0"
         >
           <div className="relative w-full h-full">
+            {/* DESKTOP IMAGE */}
             <Image
               src="/portfolio/10.webp"
               alt="Cinematic Wedding"
               fill
               className="object-cover opacity-60 hidden md:block"
               priority
-              sizes="100vw"
+              quality={85}
+              sizes="(max-width: 768px) 1px, 100vw"
             />
 
+            {/* MOBILE IMAGE */}
             <Image
-              src="/portfolio/23.webp"
+              src="/portfolio/16.webp"
               alt="Cinematic Wedding"
               fill
               className="object-cover opacity-60 block md:hidden"
               priority
-              sizes="100vw"
+              quality={80} // Slightly lower quality for mobile speed
+              sizes="(max-width: 768px) 100vw, 1px"
             />
             {/* Vignette Overlay for Focus */}
             <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#0f0f11]/20 to-[#0f0f11]/90"></div>
@@ -141,9 +142,9 @@ export default function Home() {
           style={{ y: yTextBottom, x: textX, opacity: opacityHero }}
           className="relative z-10 w-full px-4 md:px-12 mix-blend-overlay"
         >
-          <h1 className="font-serif text-[13vw] leading-[0.8] text-white tracking-tighter mb-4 text-center md:text-center">
+          <span className="font-serif text-[13vw] leading-[0.8] text-white tracking-tighter mb-4 text-center md:text-center">
             CHATHURANGA
-          </h1>
+          </span>
 
           <div className="flex justify-center md:justify-between items-end border-b border-white/20 pb-4">
             {/* Scroll Indicator */}

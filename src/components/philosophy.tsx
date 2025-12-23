@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useRef } from 'react';
 
 // --- CONSTANTS & CONFIG ---
-const PHOTOGRAPHER_IMAGE = '/portfolio/16.webp';
+const PHOTOGRAPHER_IMAGE = '/portfolio/14.webp';
 
 // "Luxury" Easing Curve (Bezier)
 const EASE_LUXURY = [0.33, 1, 0.68, 1];
@@ -129,7 +129,7 @@ export default function Philosophy() {
         {/* Signature Block */}
         <motion.div
           variants={fadeInUp}
-          custom={0.4} // Longer Delay
+          custom={0.4}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}

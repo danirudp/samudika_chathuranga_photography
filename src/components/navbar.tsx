@@ -42,12 +42,10 @@ export default function Navbar() {
   const { scrollY } = useScroll();
   const lenis = useLenis();
 
-  // 1. SENIOR FEATURE: Smart Scroll Logic
+  // 1. FEATURE: Smart Scroll Logic
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
 
-    // Hide if scrolling DOWN and past 150px
-    // Show if scrolling UP or near top
     if (latest > previous && latest > 150) {
       setIsHidden(true);
     } else {
@@ -71,8 +69,8 @@ export default function Navbar() {
       <motion.div
         variants={navbarVariants}
         initial="visible"
-        animate={isHidden ? 'hidden' : 'visible'} // Toggle visibility state
-        transition={{ duration: 0.35, ease: 'easeInOut' }} // Smooth transition
+        animate={isHidden ? 'hidden' : 'visible'}
+        transition={{ duration: 0.35, ease: 'easeInOut' }}
         className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4"
       >
         <nav className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 p-2 px-4 shadow-2xl backdrop-blur-xl ring-1 ring-black/5">
@@ -128,7 +126,6 @@ export default function Navbar() {
 }
 
 // --- SUB-COMPONENT: MOBILE MENU ---
-// Extracted to keep the main component clean
 function MobileMenu({
   links,
   onNavigate,

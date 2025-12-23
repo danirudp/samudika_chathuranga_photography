@@ -42,8 +42,6 @@
 }
 
 @layer utilities {
-  /* ... existing utilities ... */
-
   /* THE "DARK LIQUID" SHADER */
   .dark-liquid-text {
     color: transparent;

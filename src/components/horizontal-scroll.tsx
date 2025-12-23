@@ -78,7 +78,7 @@ export default function HorizontalScroll() {
   });
 
   // Skew is aggressive on Desktop (30), subtle on Mobile (10)
-  const skewX = useTransform(skewVelocity, [-1, 1], [30, -30]); // Framer handles the resizing interpolation automatically
+  const skewX = useTransform(skewVelocity, [-1, 1], [30, -30]);
   const scale = useTransform(skewVelocity, [-1, 1], [0.95, 0.95]);
   const dynamicScale = useTransform(scale, (s) => (s < 1 ? s : 1));
 
@@ -165,8 +165,8 @@ function VelocityCard({ item, index, skew, scale }: VelocityCardProps) {
   return (
     <motion.div
       style={{ skewX: skew, scale: scale }}
-      // MOBILE: w-[85vw] (Takes up most of the phone screen)
-      // DESKTOP: w-[45vh] (Takes up vertical slice)
+      // MOBILE: w-[85vw]
+      // DESKTOP: w-[45vh]
       className="group relative h-[50vh] w-[85vw] md:h-[65vh] md:w-[45vh] md:min-w-[400px] shrink-0 cursor-pointer perspective-1000 will-change-transform"
     >
       {/* 1. Image Container */}
